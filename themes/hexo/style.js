@@ -19,10 +19,32 @@ const Style = () => {
 
       // 底色
       #theme-hexo body {
-        background-color: #f5f5f5;
+        background-image: url('/bg_image.jpg'); /* 🌟 读取你的本地图片 */
+        background-attachment: fixed;           /* 🌟 滚动时背景不动 */
+        background-size: cover;                 /* 🌟 铺满全屏 */
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+        /* 🌟 强行让文章卡片变成半透明 */
+      #theme-hexo .bg-white,
+      #theme-hexo .bg-hexo-background-gray {
+        background-color: rgba(255, 255, 255, 0.6) !important; /* 0.6是透明度，越小越透 */
+        backdrop-filter: blur(10px); /* 🌟 毛玻璃模糊效果，看起来更高级 */
+      }
+
+      /* 深色模式下的半透明 */
+      .dark #theme-hexo .bg-white,
+      .dark #theme-hexo .dark\:bg-hexo-black-gray,
+      .dark #theme-hexo .dark\:bg-black {
+        background-color: rgba(0, 0, 0, 0.6) !important; 
+        backdrop-filter: blur(10px);
       }
       .dark #theme-hexo body {
-        background-color: black;
+        background-image: url('/bg_image.jpg'); /* 深色模式也用这张图，或者换一张 */
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
       }
 
       /*  菜单下划线动画 */
